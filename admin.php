@@ -33,7 +33,7 @@ else{
     header('WWW-Authenticate: Basic rеаlm=".login"'); 
     exit('');
   }
-  if (!empty($row))
+  if (!empty($row)){
     echo "<p>Добро пожаловать: " . htmlspecialchars($_SERVER['PHP_AUTH_USER']) . "<br />";
     echo "<form action='' method='post'>\n";
     echo "<input type='hidden' name='SeenBefore' value='1' />\n";
