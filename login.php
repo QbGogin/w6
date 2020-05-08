@@ -78,7 +78,7 @@ else {
     }
     else {
       try {
-        $db = new PDO('mysql:host=localhost;dbname=u20295', 'u20295', '7045626');
+        $db = new PDO('mysql:host=localhost;dbname=u20294', 'u20294', '5205554');
         $row=$db->query("SELECT login FROM profi where login='".(string)$_POST['login']."' AND password='".(string)md5($_POST['pass'])."'")->fetch();
         $db = null;
       }

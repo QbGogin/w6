@@ -1,5 +1,5 @@
 table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Comic Sans MS", "Comic Sans", cursive	;
     font-size: 14px;
     border-collapse: collapse;
     text-align: center;
@@ -33,9 +33,9 @@ th:first-child, td:first-child {
 }
 #content{
     outline: none;
-    font-family: 'Uni Sans Semibold' ;
+    font-family: "Comic Sans MS", "Comic Sans", cursive ;
     margin: auto auto;
-    background-color: rgb(193, 218, 106);
+    background-color: rgb(255, 253, 133);
     text-align: center;
 }
 #name, #email, #osebe, #date, #login, #pass, #in, #ok, #out{ 
