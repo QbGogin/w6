@@ -5,17 +5,17 @@ table {
     text-align: center;
 }
 th, td:first-child {
-    background: #AFCDE7;
-    color: white;
+    background: yellow;
+    color: orange;
 }
 th, td {
     border-style: solid;
     border-width: 0 1px 1px 0;
-    border-color: white;
+    border-color: orange;
     width: 150;
 }
 td {
-    background: #D8E6F3;
+    background: rgb(255, 166, 0);
     width: 150;
 }
 th:first-child, td:first-child {
@@ -35,13 +35,13 @@ th:first-child, td:first-child {
     outline: none;
     font-family: 'Uni Sans Semibold' ;
     margin: auto auto;
-    background-color: #F0F8FF;
+    background-color: rgb(193, 218, 106);
     text-align: center;
 }
-#inName, #inEmail, #inMessage, #inDate, #login, #pass, #in, #ok, #out{ 
+#name, #email, #osebe, #date, #login, #pass, #in, #ok, #out{ 
     border-radius: 50px;
     margin:5px;
 }
 a{
-    color: #703bfd !important;
+    color: #fd3b3b !important;
 }
