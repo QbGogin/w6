@@ -1,7 +1,6 @@
 <?php
  if (!empty($messages)) {
   print('<div id="messages">');
-
   foreach ($messages as $message) {
     print($message);
   }
@@ -30,7 +29,7 @@ else{
   }
   catch(PDOException $e){
     header('HTTP/l.1 401 Unauthorized');
-    header('WWW-Authenticate: Basic rеаlm=".login"'); 
+    header('WWW-Authenticate: Basic rеаlm="admin.php"'); 
     exit('');
   }
   if (!empty($row)){
@@ -38,73 +37,78 @@ else{
     echo "<form action='' method='post'>\n";
     echo "<input type='hidden' name='SeenBefore' value='1' />\n";
     echo "<input type='hidden' name='OldAuth' value=\"" . htmlspecialchars($_SERVER['PHP_AUTH_USER']) . "\" />\n";
-    echo "<input type='submit' value='Авторизоваться повторно' />\n";
+    echo "<input type='hidden' name='save'/>\n";
+    echo "<input style='border-radius: 50px; margin:5px;' type='submit' value='Авторизоваться повторно как администратор'/>\n";
+    echo "</form></p>\n";
+    echo "<form action='index.php' method='post'>\n";
+    echo "<input type='submit' name='save' id='out' value='Создать нового пользователя'/>\n";
+    echo "<input type='submit' name='save' id='out' value='Войти как пользователь'/>\n";
     echo "</form></p>\n";
     $num=1;
     $messages[] = sprintf("
-    <head>
-      <meta charset='utf-8'>
-      <link rel='stylesheet' href = 'style.css'>
-    </head>
-    <table>
-      <th>num</th>
-      <th class='small_size'>login</th>
-      <th class='big_size'>password</th>
-      <th >name</th>
-      <th >email</th>
-      <th >date</th>
-      <th class='center'>sex</th>
-      <th class='small_size'>limb</th>
-      <th class='center'>ability1</th>
-      <th class='center'>ability2</th>
-      <th class='center'>ability3</th>
-      <th class='center'>ability4</th>
-      <th class='center'>ability5</th>
-      <th class='center'>ability6</th>
-      <th class='center'>ability7</th>
-      <th class='center'>ability8</th>
-      <th class='big_size'>osebe</th>
-      <th class='center'>kontract</th>
-      <th class='center'>Удалить</th>
-    </table>
-    ");
-
-
-    foreach($db->query('SELECT * FROM profi') as $row){
-      $messages[] = sprintf("
       <head>
         <meta charset='utf-8'>
         <link rel='stylesheet' href = 'style.css'>
+        <title>Администратор web6</title>
       </head>
       <table>
-        <td>%s</td>
-        <td class='small_size'>%s</td>
-        <td class='big_size'>%s</td>
-        <td >%s</td>
-        <td >%s</td>
-        <td >%s</td>
-        <td class='center'>%s</td>
-        <td class='small_size'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>%s</td>
-        <td class='big_size'>%s</td>
-        <td class='center'>%s</td>
-        <td class='center'>
-          <form method='POST' action='delete.php'>
-            <input type='submit' name='save' value='%s' />
-          </form>
-        </td>
-      </table>
+      <tr>
+        <th>num</th>
+        <th class='short'>login</th>
+        <th class='short'>password</th>
+        <th >name</th>
+        <th >email</th>
+        <th >date</th>
+        <th class='middle'>sex</th>
+        <th class='short'>limb</th>
+        <th class='middle'>ability1</th>
+        <th class='middle'>ability2</th>
+        <th class='middle'>ability3</th>
+        <th class='middle'>ability4</th>
+        <th class='middle'>ability5</th>
+        <th class='middle'>ability6</th>
+        <th class='middle'>ability7</th>
+        <th class='middle'>ability8</th>
+        <th class='long'>osebe</th>
+        <th class='middle'>kontract</th>
+        <th class='middle'>Удалить</th>
+      </tr>
+    ");
+    foreach($db->query('SELECT * FROM profi') as $row){
+      $n=1;
+      while(true){
+        if(md5($n)!=$row['password']){
+          $n=$n+1;
+        }
+        else{
+          break;
+        }
+      }
+      $messages[] = sprintf("
+        <tr>
+          <td>%s</td>
+          <td class='short'>%s</td>
+          <td class='short'>%s</td>
+          <td >%s</td>
+          <td >%s</td>
+          <td >%s</td>
+          <td class='middle'>%s</td>
+          <td class='short'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='long'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>
+            <form method='POST' action='delete.php'>
+              <input type='submit' name='save' value='%s' />
+            </form>
+          </td>
+        </tr>
       ",
       strip_tags($num),
       strip_tags($row['login']),
-      strip_tags($row['password']),
+      strip_tags($n),
       strip_tags($row['name']),
       strip_tags($row['email']),
       strip_tags($row['date']),
@@ -124,10 +128,9 @@ else{
       );
       $num=$num+1;
     }
+    $messages[] = sprintf("</table>");
     if (!empty($messages)) {
       print('<div id="messages">');
-
-
       foreach ($messages as $message) {
         print($message);
       }
