@@ -21,16 +21,16 @@
 			?>
 			<form method="POST" action="">
 				<legend>Контактная информация</legend>
-				<label for="name">Имя:</label><br>
-				<input type="text" id="name" name="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>" placeholder="Иван"><br>
-				<label for="email">e-mail:</label><br>
-				<input type="text" id="email" name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>" placeholder="email"><br>
+				<label >Имя:</label><br>
+				<input type="text"  name="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>" placeholder="Иван"><br>
+				<label >e-mail:</label><br>
+				<input type="text"  name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>" placeholder="email"><br>
 				<br/>Дата рождения:<br/>
-					<input name="date" id="date" <?php if ($errors['date']) {print 'class="error"';} ?> value="<?php print $values['date']; ?>" type="text" placeholder="01.01.2000"/><br/>
-				<label for="sex">Пол:</label><br>
+					<input name="date"  <?php if ($errors['date']) {print 'class="error"';} ?> value="<?php print $values['date']; ?>" type="text" placeholder="01.01.2000"/><br/>
+				<label >Пол:</label><br>
 					<input type="radio" name="sex" value="male" <?php if ($values['sex'] == 'male') {print 'checked="checked"';} ?>/> Мужской<br>
 					<input type="radio" name="sex" value="female"<?php if ($values['sex'] == 'female') {print 'checked="checked"';} ?>/>Женский<br>
-				<label for="limb">Кол-во конечностей:</label><br>
+				<label >Кол-во конечностей:</label><br>
 				<input type="radio" name="limb" <?php if ($errors['limb']) {print 'class="error"';} ?> value="1" <?php if ($values['limb'] == '1') {print 'checked="checked"';} ?> />1<br/>
                 <input type="radio" name="limb" <?php if ($errors['limb']) {print 'class="error"';} ?> value="2" <?php if ($values['limb'] == '2') {print 'checked="checked"';} ?> />2<br/>
                 <input type="radio" name="limb" <?php if ($errors['limb']) {print 'class="error"';} ?> value="3" <?php if ($values['limb'] == '3') {print 'checked="checked"';} ?> />3<br/>

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <form action="login.php" method="post">
       <p><h2>Войдите для изменения данных </p>
       <p>Логин:</p>
-      <input name="login" id="login"  placeholder="11111"/>
+      <input name="login" id="login"  placeholder="логин"/>
       <p>Пароль:</p>
       <input name="pass" id="pass" placeholder="пароль"/></br>
       <input type="submit" id="in" value="Войти"/>

@@ -97,6 +97,11 @@ else{
           <td class='middle'>%s</td>
           <td class='middle'>%s</td>
           <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
+          <td class='middle'>%s</td>
           <td class='long'>%s</td>
           <td class='middle'>%s</td>
           <td class='middle'>
